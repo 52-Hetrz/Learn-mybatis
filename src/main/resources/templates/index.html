@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="test">
+        <button @click="selectAll()">点击</button>
+        <p>{{data}}</p>
+    </div>
+
+
+
+    <script>
+        const app = {
+            data(){
+                return{
+                    msg:"",
+                    data:null
+                }
+            },
+            method:{
+                selectAll(){
+                    console.log(1)
+                    let result = axios.post("/user/selectAll")
+                    .then(
+                        result => {return result}
+                    )
+                    console.log("2")
+                    this.data = result.data;
+                }
+            }
+        }
+
+    </script>
+
+</body>
+</html>
